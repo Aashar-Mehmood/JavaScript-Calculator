@@ -12,19 +12,13 @@ var result = [];
 function calclator(e) {	
 
 
-	if (e.target.classList.contains('number')) {
+	if (e.target.classList.contains('number')||e.target.classList.contains('operator')) {
 
 		output.push(e.target.innerHTML);
 		result.push(e.target.innerHTML);
 
 	}
 	
-	else if (e.target.classList.contains('operator')) {
-
-		output.push(e.target.innerHTML);
-		result.push(e.target.innerHTML);
-	}
-
 
 	else if (e.target.classList.contains('clr')){
 		output = [];
