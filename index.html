@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-</head>
-<body>
-<main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2>Calc</h2>
+        <div class="toggler">
+          <p>Theme</p>
+          <div class="toggler-innner" id="toggler-btn">
+            <div class="circle" id="toggler-circle"></div>
+          </div>
+        </div>
+      </section>
+      <div class="output">
+        <div id="calculation"></div>
+        <div id="result"></div>
+      </div>
 
-	<div class="output">
-		<div id="calculation"></div>
-		<div id="result"></div>
-	</div>
+      <div class="input" id="inputContainer">
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button id="delete">DEL</button>
 
-	<div class="input" id="inputContainer">
-		<button id="delete">DLT</button>
-		<button id="clear">CLR</button>
-		<button id="percent" class="operator">%</button>
-		<button id="divide"	 class="operator">/</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="operator" id="add">+</button>
 
-		<button class="number">7</button>
-		<button class="number">8</button>
-		<button class="number">9</button>
-		<button class="operator" id="multiply">*</button>
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="operator" id="subtract">-</button>
 
-		<button class="number">4</button>
-		<button class="number">5</button>
-		<button class="number">6</button>
-		<button class="operator" id="add">+</button>
+        <button class="number">.</button>
+        <button class="number">0</button>
+        <button id="divide" class="operator">/</button>
+        <button class="operator" id="multiply">*</button>
 
-		<button class="number">1</button>
-		<button class="number">2</button>
-		<button class="number">3</button>
-		<button class="operator" id="subtract">-</button>
-		
-		<span></span>
-		<button class="number">0</button>
-		<button class="number">.</button>
-		<button id="result">=</button>
+        <button id="clear">RESET</button>
 
-	</div>
+        <button id="result">=</button>
+      </div>
+    </main>
 
-</main>
-
-<script type="text/javascript" src="index.js"></script>
-</body>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
 </html>

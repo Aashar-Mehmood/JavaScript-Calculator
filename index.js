@@ -1,3 +1,12 @@
+const toggler = document.getElementById("toggler-btn");
+const circle = document.getElementById("toggler-circle");
+
+toggler.addEventListener("click", () => {
+  circle.classList.contains("right")
+    ? circle.classList.remove("right")
+    : circle.classList.add("right");
+});
+
 const CALCULATIONS = document.getElementById("calculation");
 const RESULT = document.getElementById("result");
 const BTNS_CONTAINER = document.getElementById("inputContainer");
@@ -7,45 +16,37 @@ var OperandOne = 0;
 var OperandTwo = 0;
 var operator = "";
 var textBuffer = [];
-var targetId = '';
-
+var targetId = "";
 
 BTNS_CONTAINER.addEventListener("click", (e) => {
   targetId = e.target.id;
 
-  if (targetId == "clear"  || targetId == "delete" || targetId == "result") {
+  if (targetId == "clear" || targetId == "delete" || targetId == "result") {
     if (targetId == "clear") {
       textBuffer = [];
       OperandOne = 0;
       OperandTwo = 0;
-      CALCULATIONS.innerText = '';
-      RESULT.innerText = '';
-    }
-    else if (targetId === "result") {
+      CALCULATIONS.innerText = "";
+      RESULT.innerText = "";
+    } else if (targetId === "result") {
       showOutput();
-    }
-    else if (targetId==="delete"){
+    } else if (targetId === "delete") {
       textBuffer.pop();
-    } 
-    
-  } 
+    }
+  }
 
   if (e.target.classList.contains("operator")) {
-
     if (textBuffer.join("").match(/[\s*/%+-]+/g)) {
       showOutput();
       textBuffer.push(e.target.innerText);
-    }
-    else {
+    } else {
       operator = e.target.innerText;
       textBuffer.push(operator);
     }
-  } 
-
-  else if (e.target.classList.contains('number')){
+  } else if (e.target.classList.contains("number")) {
     textBuffer.push(e.target.innerText);
   }
-  CALCULATIONS.innerText = textBuffer.join('');
+  CALCULATIONS.innerText = textBuffer.join("");
 });
 
 function showOutput() {
@@ -57,7 +58,6 @@ function showOutput() {
   var output = calculteOutput(OperandOne, operator, OperandTwo);
   textBuffer.push(output);
   RESULT.innerText = output;
-  
 }
 
 function calculteOutput(OperandOne, operator, OperandTwo) {
