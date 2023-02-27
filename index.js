@@ -2,9 +2,38 @@ const toggler = document.getElementById("toggler-btn");
 const circle = document.getElementById("toggler-circle");
 
 toggler.addEventListener("click", () => {
-  circle.classList.contains("right")
-    ? circle.classList.remove("right")
-    : circle.classList.add("right");
+  const root = document.querySelector(":root");
+
+  let classList = circle.classList;
+  if (!classList.contains("theme2")) {
+    classList.add("theme2");
+    setTheme("theme2");
+  } else if (classList.contains("theme2") && !classList.contains("theme3")) {
+    classList.add("theme3");
+    setTheme("theme3");
+  } else if (classList.contains("theme2") && classList.contains("theme3")) {
+    classList.remove("theme2");
+    classList.remove("theme3");
+    setTheme("theme1");
+  }
+});
+
+function getCurrentTheme() {
+  let userPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  // dark = theme1, light = theme2;
+  return userPrefersDark ? "theme1" : "theme2";
+}
+
+function setTheme(userPrefered) {
+  const root = document.querySelector(":root");
+  root.setAttribute("theme", `${userPrefered}`);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  setTheme(getCurrentTheme());
 });
 
 const CALCULATIONS = document.getElementById("calculation");
